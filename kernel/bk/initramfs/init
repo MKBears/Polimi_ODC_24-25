@@ -1,0 +1,37 @@
+#!/bin/sh
+
+echo "Init script started"
+
+# Mount necessary filesystems
+mkdir /proc /sys
+mount -t proc none /proc
+mount -t sysfs none /sys
+mount -t devtmpfs devtmpfs /dev
+
+# Insert the kernel module
+insmod /baby_kernel.ko
+
+# Set permissions
+chmod o+r /dev/baby_kernel
+chmod o+w /dev/baby_kernel
+
+# Set flag permissions
+chown 0:0 /flag
+chmod 400 /flag
+
+# Configure network interface (assuming eth0)
+ifconfig eth0 up
+ifconfig eth0 10.0.2.15 netmask 255.255.255.0
+route add default gw 10.0.2.2
+
+exec 0</dev/ttyS0
+exec 1>/dev/ttyS0
+exec 2>/dev/ttyS0
+
+setsid cttyhack setuidgid 1000 sh
+# setsid cttyhack setuidgid 0 sh
+
+umount /proc
+umount /sys
+umount /dev
+poweroff -d 0  -f

@@ -1,0 +1,14 @@
+Dear Santa Claus,\n\n
+My name is %s, and I am writing to you from Milan. 
+I hope you, Mrs. Claus, the elves, and all the reindeers are doing well at the North Pole.\n\n
+As Christmas is approaching, I have been trying my best to be kind and dedicated to my studies. 
+This year, I obtained good results in my university career and I did all the challenges in the Offensive and Defensive Cybersecurity course.\n\n
+There is something special I have been wishing for this Christmas. My biggest wish this year is: %s. \n\n
+I understand that Christmas is a time of giving and sharing, and I promise to share my joy and whatever I receive with others. 
+I also want to wish a Merry Christmas to everyone, especially those who might need some extra cheer this year. 
+Thank you, Santa, for bringing magic and joy to children all around the world. 
+I will make sure to leave some cookies and milk for you on Christmas Eve, and some carrots and sugar sticks for the reindeers too!\n\n
+Merry Christmas, Santa!\n\n
+With love, \n\n%s.
+
+max size ~ 667

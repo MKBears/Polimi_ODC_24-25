@@ -1,0 +1,12 @@
+from libdebug import debugger
+
+def dump_unpacked(t, b) :
+    pointer = int.from_bytes(t.memory[t.regs.esp, 4], "little")
+    size = int.from_bytes(t.mem[t.regs.esp + 4, 4], "little")
+    # unpacked = something like the unpack script
+
+d = debugger("./john", "flag{provola}")
+
+d.run()
+
+d.bp(0x8049295, hardware = True, callback = dump_unpacked)

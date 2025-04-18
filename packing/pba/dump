@@ -1,0 +1,228 @@
+0x00005555555551b9 <+0>:     push   rbp
+   0x00005555555551ba <+1>:     mov    rbp,rsp
+   0x00005555555551bd <+4>:     sub    rsp,0x90
+   0x00005555555551c4 <+11>:    mov    QWORD PTR [rbp-0x88],rdi
+   0x00005555555551cb <+18>:    mov    rax,QWORD PTR fs:0x28
+   0x00005555555551d4 <+27>:    mov    QWORD PTR [rbp-0x8],rax
+   0x00005555555551d8 <+31>:    xor    eax,eax
+   0x00005555555551da <+33>:    lea    rax,[rip+0x18e]        # 0x55555555536f <decode+438>
+   0x00005555555551e1 <+40>:    mov    QWORD PTR [rbp-0x50],rax
+   0x00005555555551e5 <+44>:    mov    rax,QWORD PTR [rbp-0x88]
+   0x00005555555551ec <+51>:    shr    rax,0x2
+   0x00005555555551f0 <+55>:    mov    DWORD PTR [rbp-0x5c],eax
+   0x00005555555551f3 <+58>:    mov    eax,0x34
+   0x00005555555551f8 <+63>:    cdq
+   0x00005555555551f9 <+64>:    idiv   DWORD PTR [rbp-0x5c]
+   0x00005555555551fc <+67>:    add    eax,0x6
+   0x00005555555551ff <+70>:    mov    DWORD PTR [rbp-0x68],eax
+   0x0000555555555202 <+73>:    mov    eax,DWORD PTR [rbp-0x68]
+   0x0000555555555205 <+76>:    imul   eax,eax,0x9e3779b9
+   0x000055555555520b <+82>:    mov    DWORD PTR [rbp-0x70],eax
+   0x000055555555520e <+85>:    mov    rax,QWORD PTR [rbp-0x50]
+   0x0000555555555212 <+89>:    mov    eax,DWORD PTR [rax]
+   0x0000555555555214 <+91>:    mov    DWORD PTR [rbp-0x74],eax
+   0x0000555555555217 <+94>:    mov    eax,DWORD PTR [rbp-0x70]
+   0x000055555555521a <+97>:    shr    eax,0x2
+   0x000055555555521d <+100>:   and    eax,0x3
+   0x0000555555555220 <+103>:   mov    DWORD PTR [rbp-0x58],eax
+   0x0000555555555223 <+106>:   mov    eax,DWORD PTR [rbp-0x5c]
+   0x0000555555555226 <+109>:   sub    eax,0x1
+   0x0000555555555229 <+112>:   mov    DWORD PTR [rbp-0x6c],eax
+   0x000055555555522c <+115>:   jmp    0x5555555552d1 <decode+280>
+   0x0000555555555231 <+120>:   mov    eax,DWORD PTR [rbp-0x6c]
+   0x0000555555555234 <+123>:   sub    eax,0x1
+   0x0000555555555237 <+126>:   mov    eax,eax
+   0x0000555555555239 <+128>:   lea    rdx,[rax*4+0x0]
+   0x0000555555555241 <+136>:   mov    rax,QWORD PTR [rbp-0x50]
+   0x0000555555555245 <+140>:   add    rax,rdx
+   0x0000555555555248 <+143>:   mov    eax,DWORD PTR [rax]
+   0x000055555555524a <+145>:   mov    DWORD PTR [rbp-0x54],eax
+   0x000055555555524d <+148>:   mov    eax,DWORD PTR [rbp-0x6c]
+   0x0000555555555250 <+151>:   lea    rdx,[rax*4+0x0]
+   0x0000555555555258 <+159>:   mov    rax,QWORD PTR [rbp-0x50]
+   0x000055555555525c <+163>:   add    rax,rdx
+   0x000055555555525f <+166>:   mov    edx,DWORD PTR [rax]
+   0x0000555555555261 <+168>:   mov    eax,DWORD PTR [rbp-0x54]
+   0x0000555555555264 <+171>:   shr    eax,0x5
+   0x0000555555555267 <+174>:   mov    ecx,eax
+   0x0000555555555269 <+176>:   mov    eax,DWORD PTR [rbp-0x74]
+   0x000055555555526c <+179>:   shl    eax,0x2
+   0x000055555555526f <+182>:   xor    ecx,eax
+   0x0000555555555271 <+184>:   mov    eax,DWORD PTR [rbp-0x74]
+   0x0000555555555274 <+187>:   shr    eax,0x3
+   0x0000555555555277 <+190>:   mov    esi,eax
+   0x0000555555555279 <+192>:   mov    eax,DWORD PTR [rbp-0x54]
+   0x000055555555527c <+195>:   shl    eax,0x4
+   0x000055555555527f <+198>:   xor    eax,esi
+   0x0000555555555281 <+200>:   lea    edi,[rcx+rax*1]
+   0x0000555555555284 <+203>:   mov    eax,DWORD PTR [rbp-0x70]
+   0x0000555555555287 <+206>:   xor    eax,DWORD PTR [rbp-0x74]
+   0x000055555555528a <+209>:   mov    ecx,eax
+   0x000055555555528c <+211>:   mov    eax,DWORD PTR [rbp-0x6c]
+   0x000055555555528f <+214>:   and    eax,0x3
+   0x0000555555555292 <+217>:   xor    eax,DWORD PTR [rbp-0x58]
+   0x0000555555555295 <+220>:   mov    eax,eax
+   0x0000555555555297 <+222>:   lea    rsi,[rax*4+0x0]
+   0x000055555555529f <+230>:   lea    rax,[rip+0x2dda]        # 0x555555558080 <key>
+   0x00005555555552a6 <+237>:   mov    eax,DWORD PTR [rsi+rax*1]    <==============================================================
+   0x00005555555552a9 <+240>:   xor    eax,DWORD PTR [rbp-0x54]
+   0x00005555555552ac <+243>:   add    eax,ecx
+   0x00005555555552ae <+245>:   xor    edi,eax
+   0x00005555555552b0 <+247>:   mov    ecx,edi
+   0x00005555555552b2 <+249>:   mov    eax,DWORD PTR [rbp-0x6c]
+   0x00005555555552b5 <+252>:   lea    rsi,[rax*4+0x0]
+   0x00005555555552bd <+260>:   mov    rax,QWORD PTR [rbp-0x50]
+   0x00005555555552c1 <+264>:   add    rax,rsi
+   0x00005555555552c4 <+267>:   sub    edx,ecx
+   0x00005555555552c6 <+269>:   mov    DWORD PTR [rax],edx
+   0x00005555555552c8 <+271>:   mov    eax,DWORD PTR [rax]
+   0x00005555555552ca <+273>:   mov    DWORD PTR [rbp-0x74],eax
+   0x00005555555552cd <+276>:   sub    DWORD PTR [rbp-0x6c],0x1
+   0x00005555555552d1 <+280>:   cmp    DWORD PTR [rbp-0x6c],0x0
+   0x00005555555552d5 <+284>:   jne    0x555555555231 <decode+120>
+   0x00005555555552db <+290>:   mov    eax,DWORD PTR [rbp-0x5c]
+   0x00005555555552de <+293>:   cdqe
+   0x00005555555552e0 <+295>:   shl    rax,0x2
+   0x00005555555552e4 <+299>:   lea    rdx,[rax-0x4]
+   0x00005555555552e8 <+303>:   mov    rax,QWORD PTR [rbp-0x50]
+   0x00005555555552ec <+307>:   add    rax,rdx
+   0x00005555555552ef <+310>:   mov    eax,DWORD PTR [rax]
+   0x00005555555552f1 <+312>:   mov    DWORD PTR [rbp-0x54],eax
+   0x00005555555552f4 <+315>:   mov    rax,QWORD PTR [rbp-0x50]
+   0x00005555555552f8 <+319>:   mov    edx,DWORD PTR [rax]
+   0x00005555555552fa <+321>:   mov    eax,DWORD PTR [rbp-0x54]
+   0x00005555555552fd <+324>:   shr    eax,0x5
+   0x0000555555555300 <+327>:   mov    ecx,eax
+   0x0000555555555302 <+329>:   mov    eax,DWORD PTR [rbp-0x74]
+   0x0000555555555305 <+332>:   shl    eax,0x2
+   0x0000555555555308 <+335>:   xor    ecx,eax
+   0x000055555555530a <+337>:   mov    eax,DWORD PTR [rbp-0x74]
+   0x000055555555530d <+340>:   shr    eax,0x3
+   0x0000555555555310 <+343>:   mov    esi,eax
+   0x0000555555555312 <+345>:   mov    eax,DWORD PTR [rbp-0x54]
+   0x0000555555555315 <+348>:   shl    eax,0x4
+   0x0000555555555318 <+351>:   xor    eax,esi
+   0x000055555555531a <+353>:   lea    edi,[rcx+rax*1]
+   0x000055555555531d <+356>:   mov    eax,DWORD PTR [rbp-0x70]
+   0x0000555555555320 <+359>:   xor    eax,DWORD PTR [rbp-0x74]
+   0x0000555555555323 <+362>:   mov    ecx,eax
+   0x0000555555555325 <+364>:   mov    eax,DWORD PTR [rbp-0x6c]
+   0x0000555555555328 <+367>:   and    eax,0x3
+   0x000055555555532b <+370>:   xor    eax,DWORD PTR [rbp-0x58]
+   0x000055555555532e <+373>:   mov    eax,eax
+   0x0000555555555330 <+375>:   lea    rsi,[rax*4+0x0]
+   0x0000555555555338 <+383>:   lea    rax,[rip+0x2d41]        # 0x555555558080 <key>
+   0x000055555555533f <+390>:   mov    eax,DWORD PTR [rsi+rax*1]
+   0x0000555555555342 <+393>:   xor    eax,DWORD PTR [rbp-0x54]
+   0x0000555555555345 <+396>:   add    eax,ecx
+   0x0000555555555347 <+398>:   xor    eax,edi
+   0x0000555555555349 <+400>:   sub    edx,eax
+   0x000055555555534b <+402>:   mov    rax,QWORD PTR [rbp-0x50]
+   0x000055555555534f <+406>:   mov    DWORD PTR [rax],edx
+   0x0000555555555351 <+408>:   mov    rax,QWORD PTR [rbp-0x50]
+   0x0000555555555355 <+412>:   mov    eax,DWORD PTR [rax]
+   0x0000555555555357 <+414>:   mov    DWORD PTR [rbp-0x74],eax
+   0x000055555555535a <+417>:   add    DWORD PTR [rbp-0x70],0x61c88647
+   0x0000555555555361 <+424>:   sub    DWORD PTR [rbp-0x68],0x1
+   0x0000555555555365 <+428>:   cmp    DWORD PTR [rbp-0x68],0x0
+   0x0000555555555369 <+432>:   jne    0x555555555217 <decode+94>
+   0x000055555555536f <+438>:   xchg   ecx,esp
+   0x0000555555555371 <+440>:   movabs ds:0xf42e9c2db4d459b1,eax
+   0x000055555555537a <+449>:   je     0x555555555378 <decode+447>
+   0x000055555555537c <+451>:   mov    bl,0xd1
+   0x000055555555537e <+453>:   retf
+   0x000055555555537f <+454>:   (bad)
+   0x0000555555555380 <+455>:   push   rbp
+   0x0000555555555381 <+456>:   and    eax,0xb0934d1b
+   0x0000555555555386 <+461>:   rex.B jo 0x5555555553cb <decode+530>
+   0x0000555555555389 <+464>:   fmul   DWORD PTR [rip+0xffffffff924d5fe6]        # 0x5554e7a2b375
+   0x000055555555538f <+470>:   mov    edx,0x3d3d68cf
+   0x0000555555555394 <+475>:   (bad)
+   0x0000555555555395 <+476>:   adc    al,0x3f
+   0x0000555555555397 <+478>:   lea    edx,[rdx]
+   0x0000555555555399 <+480>:   fdivr  DWORD PTR [rax-0x795ac813]
+   0x000055555555539f <+486>:   outs   dx,BYTE PTR ds:[rsi]
+   0x00005555555553a0 <+487>:   (bad)
+   0x00005555555553a1 <+488>:   retf
+   0x00005555555553a2 <+489>:   cmps   DWORD PTR ds:[rsi],DWORD PTR es:[rdi]
+   0x00005555555553a3 <+490>:   xchg   ecx,eax
+   0x00005555555553a4 <+491>:   cmp    eax,0x445bef7f
+   0x00005555555553a9 <+496>:   add    BYTE PTR [rbx],ah
+   0x00005555555553ab <+498>:   mov    al,0x29
+   0x00005555555553ad <+500>:   sbb    al,0x3d
+   0x00005555555553af <+502>:   jo     0x555555555350 <decode+407>
+   0x00005555555553b1 <+504>:   out    0x7,al
+   0x00005555555553b3 <+506>:   rex.XB sbb al,0x8
+   0x00005555555553b6 <+509>:   sbb    al,0xcb
+   0x00005555555553b8 <+511>:   rex.B out 0x49,al
+   0x00005555555553bb <+514>:   adc    DWORD PTR [rbp+rcx*8+0x7],esp
+   0x00005555555553bf <+518>:   cli
+   0x00005555555553c0 <+519>:   loopne 0x5555555553b9 <decode+512>
+   0x00005555555553c2 <+521>:   imul   edi,DWORD PTR [rip+0xfffffffff80cf329],0x2d3f3231        # 0x55554d6246f5
+   0x00005555555553cc <+531>:   enter  0x90e8,0x53
+   0x00005555555553d0 <+535>:   rex.R mov edi,0x236a20dd
+   0x00005555555553d6 <+541>:   xor    al,al
+   0x00005555555553d8 <+543>:   popf
+   0x00005555555553d9 <+544>:   push   rcx
+   0x00005555555553da <+545>:   rcr    DWORD PTR [rsi],1
+   0x00005555555553dc <+547>:   sub    edi,ebx
+   0x00005555555553de <+549>:   out    0x30,eax
+   0x00005555555553e0 <+551>:   jg     0x55555555541b <decode+610>
+   0x00005555555553e2 <+553>:   jp     0x5555555553fb <decode+578>
+   0x00005555555553e4 <+555>:   (bad)
+   0x00005555555553e5 <+556>:   enter  0xecf7,0xda
+   0x00005555555553e9 <+560>:   (bad)
+   0x00005555555553ea <+561>:   cmp    al,0xd1
+   0x00005555555553ec <+563>:   outs   dx,BYTE PTR ds:[rsi]
+   0x00005555555553ed <+564>:   cmc
+   0x00005555555553ee <+565>:   rex.XB movsxd edx,DWORD PTR [r10]
+   0x00005555555553f1 <+568>:   push   rsi
+   0x00005555555553f2 <+569>:   hlt
+   0x00005555555553f3 <+570>:   (bad)
+   0x00005555555553f4 <+571>:   retf   0x1457
+   0x00005555555553f7 <+574>:   cmps   DWORD PTR ds:[rsi],DWORD PTR es:[rdi]
+   0x00005555555553f8 <+575>:   popf
+   0x00005555555553f9 <+576>:   lods   al,BYTE PTR ds:[rsi]
+   0x00005555555553fa <+577>:   fisubr WORD PTR [rip+0xffffffffbee3a07d]        # 0x55551438f47d
+   0x0000555555555400 <+583>:   jbe    0x5555555553af <decode+502>
+   0x0000555555555402 <+585>:   movabs al,ds:0xd245b5edbcb32608
+   0x000055555555540b <+594>:   xchg   BYTE PTR [rbx+0xe],dl
+   0x000055555555540e <+597>:   or     bl,al
+   0x0000555555555410 <+599>:   add    al,ah
+   0x0000555555555412 <+601>:   pop    rsp
+   0x0000555555555413 <+602>:   rex.WRXB push r11
+   0x0000555555555415 <+604>:   sbb    eax,DWORD PTR [rbx-0x566b3a1b]
+   0x000055555555541b <+610>:   add    esi,DWORD PTR [rbx-0x61a8d280]
+   0x0000555555555421 <+616>:   ret
+   0x0000555555555422 <+617>:   jb     0x5555555553b2 <decode+505>
+   0x0000555555555424 <+619>:   (bad)
+   0x0000555555555425 <+620>:   (bad)
+   0x0000555555555428 <+623>:   fwait
+   0x0000555555555429 <+624>:   or     BYTE PTR [rbx-0x6a],cl
+   0x000055555555542c <+627>:   idiv   BYTE PTR [rdx-0x19051df]
+   0x0000555555555432 <+633>:   (bad)
+   0x0000555555555433 <+634>:   push   rsi
+   0x0000555555555434 <+635>:   imul   ecx,DWORD PTR [rdi-0xdf56020],0x26ad9969
+   0x000055555555543e <+645>:   mov    eax,0xa45f45c2
+   0x0000555555555443 <+650>:   rex.WRB
+   0x0000555555555444 <+651>:   cs sbb ecx,edx
+   0x0000555555555447 <+654>:   xchg   ebx,eax
+   0x0000555555555448 <+655>:   mov    esp,0x2094f095
+   0x000055555555544d <+660>:   mov    eax,0x7f012cc4
+   0x0000555555555452 <+665>:   jno    0x555555555492 <main+3>
+   0x0000555555555454 <+667>:   mov    ebp,0x4fc24ef9
+   0x0000555555555459 <+672>:   rex.WRX enter 0x8579,0xae
+   0x000055555555545e <+677>:   xchg   BYTE PTR [rbp-0x69],al
+   0x0000555555555461 <+680>:   pushf
+   0x0000555555555462 <+681>:   rex.B jle 0x5555555554ae <main+31>
+   0x0000555555555465 <+684>:   data16 je 0x55555555541f <decode+614>
+   0x0000555555555468 <+687>:   xchg   ecx,eax
+   0x0000555555555469 <+688>:   out    dx,al
+   0x000055555555546a <+689>:   movabs al,ds:0x5a3b47b7a4bc0e47
+   0x0000555555555473 <+698>:   xor    eax,0xbd8cc568
+   0x0000555555555478 <+703>:   sar    DWORD PTR [rax],0xa4
+   0x000055555555547b <+706>:   add    BYTE PTR [rdx+0x10],al
+   0x000055555555547e <+709>:   lahf
+   0x000055555555547f <+710>:   mov    edx,0xc7cfa857
+   0x0000555555555484 <+715>:   rex.W out dx,al
+   0x0000555555555486 <+717>:   repnz movabs eax,ds:0x550ef43144f56400
