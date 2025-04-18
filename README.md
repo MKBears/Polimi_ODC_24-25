@@ -12,8 +12,8 @@ This repo contains all the exploits I've been able to create for the CTF challen
 + **Open Read Write**: basic way of writing a simple open-read-write ctf code
 + **Multistage**: exploit read syscall to get real shellcode from stdin to the memory (used when buffer space is limited)
 + **Tiny**: how to write a shellcode with maximum instruction size 2 Bytes
-+ **Gimme3Bytes**: how to exploit multistage to exploit only 3 Bytes of buffer
-+ **Lost in Memory**: nothing new
++ **Gimme3Bytes**: how to exploit only 3 Bytes to perform a multistage shellcode attack
++ **Lost in Memory**: nothing new, only boring memory search with (almost) all registers set to null
 + **Benchmarking Service**:
 + **Forking Server**:
 
@@ -25,7 +25,7 @@ This repo contains all the exploits I've been able to create for the CTF challen
 + **RevMeMP**: anti anti-debug techniques
 + **Baby Keycheck**: a bit fancier flag encryption
 + **Provola**: basic way of locally cracking a flag with libdebug
-+ **Slow (Food) Provola**: making sleep syscall fail, when a new character is found, bp.hit_count decrements
++ **Slow (Food) Provola**: making sleep syscall fail; inserting a bp on an exit statement
 
 ### Mitigations ###
 
@@ -46,13 +46,13 @@ This repo contains all the exploits I've been able to create for the CTF challen
 ### Symbolic execution ###
 
 + **Prodkey**, **CrackSymb**: use z3 solver to crack input flag by exploiting constraint satisfacion (find constraints with ida)
-+ **100%**: like the previous ones but also including angr scripts (not working on my pc because they fill the ram before snding)
++ **100%**: like the previous ones but also including angr scripts (not working on my pc because they fill the ram before snding - edit: they work with the LAZY_SOLVES option)
 + **NotSoHandy**:
 
 ### Heap Exploitation ###
 
-+ **Fastbin Dup**: Free twice a block to make change malloc hook with a onegadget (fastbin dup attach ~ duh)
-+ **PKM**: Basic 1 Byte overflow combined with fastbin dup to overwrite malloc hook with a onegadget
++ **Fastbin Dup**: Free twice a block to change malloc hook address with a onegadget (fastbin dup attach ~ duh)
++ **PKM**: Basic 1 Byte overflow (Poison Null Byte attack) combined with fastbin dup to overwrite malloc hook with a onegadget
 + **Santa's Letter**: harder 1 Byte overflow exploit to leak libc base address and then overwrite addresses to modify GOT entries
 + **Playground**: Basic fastbin dup attack with T-cache
 + **ASCII Gallery**:
