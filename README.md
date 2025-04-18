@@ -2,6 +2,8 @@
 
 ## by Or505 ##
 
+This repo contains all the exploits I've been able to create for the CTF challenges in the ODC course. I tried my best to document them in a clear way, so I hope to be useful for future students.
+
 ## Fancy exploits and where to find them ##
 
 ### Shellcoding ###
