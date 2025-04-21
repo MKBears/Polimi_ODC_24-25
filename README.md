@@ -89,10 +89,10 @@ This repo contains all the exploits I've been able to create for the CTF challen
 ### Linux Tools ###
 
 + **Linux Task Manager**: `htop`
-+ **Change file permissions**: `sudo chmod [+|-] [r|w|x] <file path>`
++ **Change file permissions**: `sudo chmod [+|-][r|w|x] <file path>`
 + **Change file ownership**: `sudo chown <usr>:<group> <file path>`
 + **List errors**: `sudo dmesg` reports errors, faults and security failures
-+ **File info**: `file <executable>` and `ls -l [opt <directory>]` (this one shows for each file present in the specified directory the file permissions, the number of links, owner name, owner group, file size, time of last modification, and the file or directory name)
++ **File info**: `file <executable>` and `ls -la [opt <directory>]` (this one shows for each file present in the specified directory - even the hidden ones - its permissions, the number of links, owner name, owner group, file size, time of last modification, and the file or directory name)
 + **Runtime info**: [while the program is running]
   + _pid_: `ps aux | grep  <executable>`
   + _pages map_: `sudo cat /proc/<pid>/maps` [same as vmmap in gdb]
@@ -144,10 +144,9 @@ This repo contains all the exploits I've been able to create for the CTF challen
   + _Activation_: `workon <venv name>`
   + _Deactivation_: `deactivate`
 + **Python Debug**: `python x.py DEBUG` (prints sent and recieved bytes)
-+ ****: `cyclic(0x200)` to get 0x200 = 512 Bytes of cyclic chars, `cyclic -l <retrieved ret addr>` to get how many Bytes away is the srip
++ **Cyclic**: `cyclic(0x200)` to get 0x200 = 512 Bytes of cyclic chars, `cyclic -l <retrieved ret addr>` to get how many Bytes away is the srip
 + **Security check**: `checksec <executable>`
 + **Python type conversions**:
-  + int == hex
   + _int -> char and bytes_: `chr(n)`
   + _int -> bytes_: `n.to_bytes(num_bytes, "little")` [num_bytes is 4 for 32 bit architectures and 8 for 64 bit ones]
   + _int -> string_: `str(n)`
@@ -164,9 +163,9 @@ This repo contains all the exploits I've been able to create for the CTF challen
 + **Python ELF class**:
   + _constructor_: `elf = ELF(<executable>, [opt checksec = False])`
   + _base address_: `elf.address = <addr>`
-  + _symbols_: `elf.symbols[<symbol name>]` !!Works only for some symbols
-  + _plt_: `elf.plt[<symbol name>]` !!Works only for some symbols
-  + _plt_: `elf.got[<symbol name>]` !!Works only for some symbols
+  + _symbols_: `elf.symbols[<symbol name>]` &emsp; !!Works only for some symbols
+  + _plt_: `elf.plt[<symbol name>]` &emsp;&emsp;&emsp;&emsp;&emsp;&ensp; !!Works only for some symbols
+  + _plt_: `elf.got[<symbol name>]` &emsp;&emsp;&emsp;&emsp;&emsp;&ensp; !!Works only for some symbols
 
 ### Kernel exploitation tools ###
 
