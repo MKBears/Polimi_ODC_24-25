@@ -16,6 +16,7 @@ This repo contains all the exploits I've been able to create for the CTF challen
 + **Lost in Memory**: nothing new, only boring memory search with (almost) all registers set to null
 + **Benchmarking Service**:
 + **Forking Server**:
++ **Open?Write** [25/01/10 exam]:
 
 ### Reverse engineering ###
 
@@ -26,6 +27,8 @@ This repo contains all the exploits I've been able to create for the CTF challen
 + **Baby Keycheck**: a bit fancier flag encryption
 + **Provola**: basic way of locally cracking a flag with libdebug
 + **Slow (Food) Provola**: making sleep syscall fail; inserting a bp on an exit statement
++ **Tweet** [25/01/10 exam]:
++ **O'Check'** [25/01/10 exam]:
 
 ### Mitigations ###
 
@@ -34,14 +37,16 @@ This repo contains all the exploits I've been able to create for the CTF challen
 + **PTR Protection**: ret addr is xored with canary, exploit last canary Byte (\0) and brute force on second last ret addr Byte
 + **The Adder**: break scanf to leak stuff
 + **Forking Server++**:
++ **PAC Dictionary** [25/01/10 exam]:
 
 ### Return Oriented Programming ###
 
 + **ROPasaurusrex**: exploit plt to leak got addresses, 32 bit rop chain, call to _start
 + **EasyROP**: 64 bit rop chain not directly put on stack (each 4-byte word is the sum of two previous reads), read used to put "/bin/sh" in a global variable (to have its pointer for name arg of exevce)
 + **Empty Spaces**: 64 bit rop chain created by navigating a huge number of (almost useless) gadgets, read used to overwrite random stuff blocking exploit
-+ **Positive Leak**:
-+ **Byte Flipping**:
++ **Positive Leak**: [libc.so.6 + ld-linux-x86-64.so.2]
++ **Byte Flipping**: [libc.so.6 + ld-linux-x86-64.so.2]
++ **Vuln^2** [25/01/10 exam]:
 
 ### Symbolic execution ###
 
@@ -55,25 +60,29 @@ This repo contains all the exploits I've been able to create for the CTF challen
 + **PKM**: Basic 1 Byte overflow (Poison Null Byte attack) combined with fastbin dup to overwrite malloc hook with a onegadget
 + **Santa's Letter**: harder 1 Byte overflow exploit to leak libc base address and then overwrite addresses to modify GOT entries
 + **Playground**: Basic fastbin dup attack with T-cache
-+ **ASCII Gallery**:
-+ **Master of Notes**:
++ **ASCII Gallery**: [libc-2.27.so + ld-2.27.so]
++ **Master of Notes**: [libc-2.27.so + ld-2.27.so]
++ **Padulation** [25/01/10 exam]: [libc-2.27.so + ld-2.27.so]
 
 ### Kernel Exploitation ###
 
 + **Baby Kernel**: Basic kernel exploitation, use of ioctl
 + **K-ROP**: Another basic kernel exploitation, but this time using a ROP chain
++ **Kernel One Write** [25/01/10 exam]:
 
 ### Packing ###
 
 + **John the Packer**: Analyze with ida the packer source code and unpack the function code recursively until it becomes """only""" a reverse engineering challenge to extract the flag (combine z3 solver with libdebug brute force)
 + **Dynamism**: Analyze with ida the packer source code and get the missing functions from remote, then analyze them with ghidra and execute ./dynamism with gdb to get the encrypted flag and the key
 + **Packing Bizarre Adventure**: The packer code is in a NX page, which is changed to rwx at runtime, so you cannot decompile it with ida (but you can with ghidra), then you have to retrieve the unpacked code from memory before the program jumps to it. In the end, half of the flag is taken Byte by Byte during a xor instr. (as usual). The other half is got by dumping again the packed code before jumping to it and taking again the Bytes form the xor (with another address w.r.t. the first half)
++ **Estatea*** [25/01/10 exam]:
 
 ### Race Conditions ###
 
 + **Pretty LSTAT**: Change the content of a file after a space equal to its previous size has been allocated into the stack to overflow and call an hidden function (win). Also, a bit of bash scripting and how to port it in python to use it in remote
 + **Underprivileged**: Symultaneous logout from two different threads logged in as the same user, how to deal with tokens for authentication on training.offensivedefensive.it server
 + **Swiss**: Similar to underprivileged, connect with two threads and make the second one execute the cmds before the first one finishes to create them
++ **Ticket None** [25/01/10 exam]:
 
 ## Commands and other useful stuff ##
 
