@@ -53,7 +53,7 @@ This repo contains all the exploits I've been able to create for the CTF challen
 + **Prodkey**, **CrackSymb**: use z3 solver to crack input flag by exploiting constraint satisfacion (find constraints with ida)
 + **100%**: like the previous ones but also including angr scripts (not working on my pc because they fill the ram before snding - edit: they work with the LAZY_SOLVES option)
 + **NotSoHandy**:
-+ **Kudso2u** [25/01/10 exam]:
++ **Kudos2u** [25/01/10 exam]:
 
 ### Heap Exploitation ###
 
