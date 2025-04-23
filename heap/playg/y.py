@@ -4,7 +4,7 @@ from time import sleep
 
 CHALL_PATH = "./playground_patch"
 CHALL = ELF(CHALL_PATH, checksec=False)
-LIBC = ELF("/home/merk/odc/env/libc-2.27.so", checksec=False)
+LIBC = ELF("../../env/libc-2.27.so", checksec=False)
 
 if(len(sys.argv) > 1):
     if(sys.argv[1] == '-d'):

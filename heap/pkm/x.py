@@ -5,7 +5,7 @@ from pwn import *
 
 CHALL_PATH = "./pkm_patched"
 CHALL = ELF(CHALL_PATH, checksec = False)
-LIBC_PATH = "/home/merk/odc/env/libc-2.23.so"
+LIBC_PATH = "../../env/libc-2.23.so"
 LIBC = ELF(LIBC_PATH, checksec = False)
 COMMANDS = """
 b add_pkm

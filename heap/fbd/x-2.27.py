@@ -5,7 +5,7 @@ from pwn import *
 
 CHALL_PATH = "./fastbin_dup_patched"
 CHALL = ELF(CHALL_PATH)
-LIBC = ELF("/home/merk/odc/env/libc-2.27.so")
+LIBC = ELF("../../odc/env/libc-2.27.so")
 COMMANDS = """
 b  main
 c

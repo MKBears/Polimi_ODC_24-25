@@ -2,7 +2,7 @@ from pwn import *
 
 CHALL_PATH = "./playground_patch"
 CHALL = ELF(CHALL_PATH, checksec=False)
-LIBC = ELF("/home/merk/odc/env/libc-2.27.so", checksec=False)
+LIBC = ELF("../../env/libc-2.27.so", checksec=False)
 COMMANDS = """
 b main
 brva 0x1349 
