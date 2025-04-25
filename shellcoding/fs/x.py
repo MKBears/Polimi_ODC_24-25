@@ -2,7 +2,7 @@ from pwn import *
 import atexit
 
 # Every time a new connection is created, the server creates a new thread (forks) and asks for a username, which is stored in a global array of 1000 chars (buffer). Then the content of the array is copied in a local array of 312 Bytes, so we can exploit bof to make the program return to the buffer, where we previously saved the exploit, a nop sled and the address of the buffer itself.
-# Here the problem was to test the program in local. The solution is to create two processes: one for the server (to be debugged) and the other one for creating the "remote connection" and sending the exploit.
+# Here the problem was to test the program in local, because in the training platform the server executable is running, but in local you have to debug it separately. The solution is to create two processes: one for the server (to be debugged) and the other one for creating the "remote connection" and sending the exploit.
 
 def exit_hndler():
     if not args.REMOTE:
