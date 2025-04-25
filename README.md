@@ -4,6 +4,8 @@
 
 This repo contains all the exploits I've been able to create for the CTF challenges in the ODC course. I tried my best to document them in a clear way, so I hope to be useful for future students.
 
+N.B. All the exploits in this repo work for the version of the executables I included here, but sometimes they are changed. I suggest you to take only the main ideas from my exploits and then develop your own, but if you want to try them on the executable you downloaded from the training platform, they might not work. If this happens, do not panic, just have a better look at the executable and adjust the exploit to make it work (usually it's only a matter of offsets (; ).
+
 ## Fancy exploits and where to find them ##
 
 ### Shellcoding ###
@@ -16,7 +18,7 @@ This repo contains all the exploits I've been able to create for the CTF challen
 + **Lost in Memory**: nothing new, only boring memory search with (almost) all registers set to null
 + **Benchmarking Service**:
 + **Forking Server**: way to debug a running server which creates new threads when there are new connections
-+ **Open?Write** [25/01/10 exam]:
++ **Open?Write** [25/01/10 exam]: how to use mmap syscall instead of read for getting the content of a file
 
 ### Reverse engineering ###
 

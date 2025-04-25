@@ -7,13 +7,13 @@
 const int allowed_syscalls[] = {
     SCMP_SYS(open),
     SCMP_SYS(write),
-    SCMP_SYS(close),
-    SCMP_SYS(exit),
-    SCMP_SYS(exit_group),
+    SCMP_SYS(close),        // useless
+    SCMP_SYS(exit),         // useless
+    SCMP_SYS(exit_group),   // useless
     SCMP_SYS(mmap),
-    SCMP_SYS(mprotect),
-    SCMP_SYS(munmap),
-    SCMP_SYS(nanosleep)};
+    SCMP_SYS(mprotect),     // useless
+    SCMP_SYS(munmap),       // useless
+    SCMP_SYS(nanosleep)};   // useless
 
 void init() 
 {

