@@ -104,7 +104,7 @@ This repo contains all the exploits I've been able to create for the CTF challen
   + _replace needed_: `patchelf --replace-needed <old needed lib> ~/<...>/<new needed lib> <executable>`
   + _ensure positions have not been changed_: `readelf -a <patched executable> | grep main` _VS_ `readelf -a <original executable> | grep main` [if they are not the same, you have to shorten the strings locating new libraries, moving them to the excutable directory]
 + **List Dynamic Dependencies**: `ldd <executable>`
-+ **List opened ports**: `netstat -lntup [| grep <process>]` (the process name may be cut, so insert only a part of it, otherwise grep won't find anything)
++ **List opened ports**: `ss -lntup [| grep <process>]`
 + **List gadgets**: `ropper --nocolor -f <executable> > gadgets.txt`
 + **List of gadgets spawning a shell**: `one_gadget ./libc-<version>`
 

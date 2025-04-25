@@ -23,7 +23,7 @@ c
 context.arch = 'amd64'
 exe = './forking_server'
 
-# Find address and port by running ./forking_server and in another terminal window netstat -lntup | grep forking_
+# Find address and port by running ./forking_server and in another terminal window ss -lntup | grep forking_server
 target = '0.0.0.0'
 port = 4000
 
