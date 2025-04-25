@@ -15,7 +15,7 @@ This repo contains all the exploits I've been able to create for the CTF challen
 + **Gimme3Bytes**: how to exploit only 3 Bytes to perform a multistage shellcode attack
 + **Lost in Memory**: nothing new, only boring memory search with (almost) all registers set to null
 + **Benchmarking Service**:
-+ **Forking Server**:
++ **Forking Server**: way to debug a running server which creates new threads when there are ne connections
 + **Open?Write** [25/01/10 exam]:
 
 ### Reverse engineering ###
