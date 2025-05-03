@@ -11,8 +11,8 @@ values_addr = project.loader.find_symbol("values").rebased_addr
 values = []
 
 for i in range(30) :
-    var = claripy.BVS(f"var_{i}", 8)            # BVS = symbolic bit vector      =>  first 8 bits are symbolic
-    fixed = claripy.BVV(0, 8 * 7)     # BVV = non-symbolic bit vector  =>  the other 56 bytes are fixed
+    var = claripy.BVS(f"var_{i}", 8)    # BVS = symbolic bit vector      =>  first 8 bits are symbolic
+    fixed = claripy.BVV(0, 8 * 7)       # BVV = non-symbolic bit vector  =>  the other 56 bytes are fixed
     initial_state.solver.add(var >= 0)
     initial_state.solver.add(var <= 61)
     values.append(var)

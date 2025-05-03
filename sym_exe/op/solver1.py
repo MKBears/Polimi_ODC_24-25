@@ -13,7 +13,7 @@ class HookConvert(angr.SimProcedure) :
 
         for i in range(30) :
             var = claripy.BVS(f"var_{i}", 8)  # BVS = symbolic bit vector      =>  first 8 bits are symbolic
-            fixed = claripy.BVV(0, 8 * 7)     # BVV = non-symbolic bit vector  =>  the other 56 bytes are fixed
+            fixed = claripy.BVV(0, 8 * 7)     # BVV = non-symbolic bit vector  =>  the other 56 bits are fixed
             self.state.solver.add(var >= 0)
             self.state.solver.add(var <= 61)
             values.append(var)
@@ -28,7 +28,7 @@ options = {angr.options.LAZY_SOLVES}
 project = angr.Project("./100percent", auto_load_libs = False)
 initial_state = project.factory.entry_state(args = ["./100percent", "AAAAAAAA"], add_options = options)
 values_addr = project.loader.find_symbol("values").rebased_addr
-project.hook_symbol("convert", HookConvert())
+project.hook_symbol("convert", HookConvert())   # substituting function convert with the hook
 simulation = project.factory.simgr(initial_state)
 simulation.explore(find = [0x400000 + 0x21c5], avoid = [0x400000 + 0x21cc])     # 0x400000 is the offset of angr
 

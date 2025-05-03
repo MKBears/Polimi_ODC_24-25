@@ -18,7 +18,7 @@ N.B. All the exploits in this repo work for the version of the executables I inc
 + **Lost in Memory**: nothing new, only boring memory search with (almost) all registers set to null
 + **Benchmarking Service**:
 + **Forking Server**: way to debug a running server which creates new threads when there are new connections
-+ **Open?Write** [25/01/10 exam]: how to use mmap syscall instead of read for getting the content of a file
++ **Open?Write** [25/01/10 exam]: how to use mmap syscall instead of read to get the content of a file to memory
 
 ### Reverse engineering ###
 
@@ -54,7 +54,7 @@ N.B. All the exploits in this repo work for the version of the executables I inc
 
 + **Prodkey**, **CrackSymb**: use z3 solver to crack input flag by exploiting constraint satisfacion (find constraints with ida)
 + **100%**: like the previous ones but also including angr scripts (not working on my pc because they fill the ram before snding - edit: they work with the LAZY_SOLVES option)
-+ **NotSoHandy**:
++ **NotSoHandy**: Fancy hashing function (tried angr on my own but it does't work, so I came back to z3), advanced use of z3
 + **Kudos2u** [25/01/10 exam]:
 
 ### Heap Exploitation ###
@@ -140,6 +140,7 @@ N.B. All the exploits in this repo work for the version of the executables I inc
 + **Heap**: `heap` shows all the allocated and freed (but not reallocated) chunks
 + **Bins**: `bins` shows the dynamic list of fastbins, smallbins, largebins and the unsortedbin
 + **Change values**: `set [opt {<base type>}][$<reg> | *<addr> + <offset> | <sumbol>] = <value>`
++ **Attach to a running process**: `attach <pid>` (the OS may block this, to solve please see [this guide](https://askubuntu.com/questions/41629/after-upgrade-gdb-wont-attach-to-process/41656#41656))
 
 ### Python ###
 
