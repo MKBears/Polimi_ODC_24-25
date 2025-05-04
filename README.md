@@ -38,7 +38,7 @@ N.B. All the exploits in this repo work for the version of the executables I inc
 + **One Write**: exploit exit jump address to execute hidden function (there is no ret from main)
 + **PTR Protection**: ret addr is xored with canary, exploit last canary Byte (\0) and brute force on second last ret addr Byte
 + **The Adder**: break scanf to leak stuff
-+ **Forking Server++**:
++ **Forking Server++**: Brute forcing canary (crazy, man) and fourth to last nibble of ret addr
 + **PAC Dictionary** [25/01/10 exam]:
 
 ### Return Oriented Programming ###
@@ -98,7 +98,7 @@ N.B. All the exploits in this repo work for the version of the executables I inc
 + **File info**: `file <executable>` and `ls -la [opt <directory>]` (this one shows for each file present in the specified directory - even the hidden ones - its permissions, the number of links, owner name, owner group, file size, time of last modification, and the file or directory name)
 + **Runtime info**: [while the program is running]
   + _pid_: `ps aux | grep  <executable>`
-  + _pages map_: `sudo cat /proc/<pid>/maps` [same as vmmap in gdb]
+  + _pages map_: `sudo cat /proc/<pid>/maps` or (better) `pmap <pid>` [same as vmmap in gdb]
   + _symbols known to the kernel_: `sudo cat /proc/callsyms | grep <name of program you need>`
 + **Change ELF libraries**: [better to make a copy of the executable before, with `cp <old name> <new name>`]
   + _loader_: `patchelf --set-interpreter ~/<...>/<new ld file> <executable>`
