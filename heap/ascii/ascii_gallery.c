@@ -9,7 +9,7 @@
 #include <dirent.h>
 #include <sys/stat.h>
 #include <stdint.h>
-#include "art.h"
+#include "art.h"        // => cannot fuzz with docker, this file is not provided
 
 #define MAXPIC 10
 
@@ -23,7 +23,7 @@ typedef struct{
 int random_fd = -1;
 picture *pics[MAXPIC];
 
-void init_random(void){
+void init_random(void){         // never called
     random_fd = open("/dev/urandom", O_RDONLY);
     if (random_fd < 0){
         puts("Failed Initialize random!");
@@ -31,7 +31,7 @@ void init_random(void){
     }
 }
 
-int rand_int(void){
+int rand_int(void){             // never called, so we can 
     int ret;
     read(random_fd, &ret, sizeof(ret));
     return ret;
@@ -39,7 +39,7 @@ int rand_int(void){
 
 long long get_int(){
     int num;
-    char buf[200];
+    char buf[200];                  // <-- maybe 200 digits are a bit too much for a long long int
     read(0, buf, sizeof(buf));
     return atoll(buf);
 }
@@ -53,7 +53,7 @@ void get_name(char *name, int size){
         read(0, &c, 1);
         ++i;
     }
-    name[i] = 0;
+    name[i] = 0;        // poison null byte?
 }
 
 int add_art(char *name, int artsz, char *art, uint8_t deletable){
@@ -92,10 +92,10 @@ void edit_art(int i){
         return;
     }
     printf("name> ");
-    get_name(pics[i]->name, 100);
+    get_name(pics[i]->name, 100);       // if you modify toh (art #0) this gives segmentation fault because it's stored in a non-writable area
     printf("art sz> ");
     artsz = get_int();
-    read(0, pics[i]->art, artsz);
+    read(0, pics[i]->art, artsz);       // we can write on next chunk if new size > prev size
 }
 
 void init_art(){

