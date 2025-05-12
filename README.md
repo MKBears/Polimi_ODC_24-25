@@ -46,8 +46,8 @@ N.B. All the exploits in this repo work for the version of the executables I inc
 + **ROPasaurusrex**: exploit plt to leak got addresses, 32 bit rop chain, call to _start
 + **EasyROP**: 64 bit rop chain not directly put on stack (each 4-byte word is the sum of two previous reads), read used to put "/bin/sh" in a global variable (to have its pointer for name arg of exevce)
 + **Empty Spaces**: 64 bit rop chain created by navigating a huge number of (almost useless) gadgets, read used to overwrite random stuff blocking exploit
-+ **Positive Leak**: [libc.so.6 + ld-linux-x86-64.so.2]
-+ **Byte Flipping**: [libc.so.6 + ld-linux-x86-64.so.2]
++ **Positive Leak**: 64 bit rop chain with full RELRO => libc ropchain, exploiting a broken formula for calculating the number of bytes to allocate on the stack to also leak stuff
++ **Byte Flipping**:
 + **Vuln^2** [25/01/10 exam]:
 
 ### Symbolic execution ###
@@ -108,7 +108,7 @@ N.B. All the exploits in this repo work for the version of the executables I inc
 + **List Dynamic Dependencies**: `ldd <executable>`
 + **List opened ports**: `ss -lntup [| grep <process>]`
 + **List gadgets**: `ropper --nocolor -f <executable> > gadgets.txt`
-+ **List of gadgets spawning a shell**: `one_gadget ./libc-<version>`
++ **List of gadgets spawning a shell**: `one_gadget libc-<version>`
 
 ### GDB + pnwdbg ###
 

@@ -31,7 +31,7 @@ void init_random(void){         // never called
     }
 }
 
-int rand_int(void){             // never called, so we can 
+int rand_int(void){             // never called
     int ret;
     read(random_fd, &ret, sizeof(ret));
     return ret;
@@ -53,7 +53,7 @@ void get_name(char *name, int size){
         read(0, &c, 1);
         ++i;
     }
-    name[i] = 0;        // poison null byte?
+    name[i] = 0;
 }
 
 int add_art(char *name, int artsz, char *art, uint8_t deletable){

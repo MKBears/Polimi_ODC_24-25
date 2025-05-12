@@ -10,7 +10,6 @@ def xhashe(i):
         if prev != '0':
             res += 'HIBYTE(' + prev + ')^'
 
-        # res += f'argv[1][j+{i-1}]]'
         res += 'vec[j' 
         
         if i != 1:
@@ -19,8 +18,7 @@ def xhashe(i):
         res += ']]'
 
         if prev != '0':
-            # res +=  '^' + prev + '<<8'
-            res += '^' + 'LShR(' + prev + ', 8)'
+            res +=  '^' + prev + '<<8'
 
         return res
 

