@@ -85,7 +85,7 @@ N.B. All the exploits in this repo work for the version of the executables I inc
 + **Pretty LSTAT**: Change the content of a file after a space equal to its previous size has been allocated into the stack to overflow and call an hidden function (win). Also, a bit of bash scripting and how to port it in python to use it in remote
 + **Underprivileged**: Symultaneous logout from two different threads logged in as the same user, how to deal with tokens for authentication on training.offensivedefensive.it server
 + **Swiss**: Similar to underprivileged, connect with two threads and make the second one execute the cmds before the first one finishes to create them
-+ **Ticket None** [25/01/10 exam]:
++ **Ticket None** [25/01/10 exam]: Similar to Underpriviliged, connect with two threads and make one open a file while the other overwrites it
 
 ## Commands and other useful stuff ##
 
@@ -140,6 +140,7 @@ N.B. All the exploits in this repo work for the version of the executables I inc
 + **Heap**: `heap` shows all the allocated and freed (but not reallocated) chunks
 + **Bins**: `bins` shows the dynamic list of fastbins, smallbins, largebins and the unsortedbin
 + **Change values**: `set [opt {<base type>}][$<reg> | *<addr> + <offset> | <sumbol>] = <value>`
++ **Call stack**: `where` gives the frame numbers for all the call stack, `up` and `down` allow to move in the call stack, `frame <frame_number>` gets to that frame
 + **Attach to a running process**: `attach <pid>` (the OS may block this, to solve please see [this guide](https://askubuntu.com/questions/41629/after-upgrade-gdb-wont-attach-to-process/41656#41656))
 
 ### Python ###
