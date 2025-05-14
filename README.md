@@ -29,7 +29,7 @@ N.B. All the exploits in this repo work for the version of the executables I inc
 + **Baby Keycheck**: a bit fancier flag encryption
 + **Provola**: basic way of locally cracking a flag with libdebug
 + **Slow (Food) Provola**: making sleep syscall fail; inserting a bp on an exit statement
-+ **Tweet** [25/01/10 exam]:
++ **Tweet** [25/01/10 exam]: MD5-hashed flag, the program may tell you that you've won even if the flag is not complete
 + **O'Check'** [25/01/10 exam]:
 
 ### Mitigations ###
