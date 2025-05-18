@@ -78,7 +78,7 @@ N.B. All the exploits in this repo work for the version of the executables I inc
 + **John the Packer**: Analyze with ida the packer source code and unpack the function code recursively until it becomes """only""" a reverse engineering challenge to extract the flag (combine z3 solver with libdebug brute force)
 + **Dynamism**: Analyze with ida the packer source code and get the missing functions from remote, then analyze them with ghidra and execute ./dynamism with gdb to get the encrypted flag and the key
 + **Packing Bizarre Adventure**: The packer code is in a NX page, which is changed to rwx at runtime, so you cannot decompile it with ida (but you can with ghidra), then you have to retrieve the unpacked code from memory before the program jumps to it. In the end, half of the flag is taken Byte by Byte during a xor instr. (as usual). The other half is got by dumping again the packed code before jumping to it and taking again the Bytes form the xor (with another address w.r.t. the first half)
-+ **Estatea** [25/01/10 exam]:
++ **Estatea** [25/01/10 exam]: Functions dynamically wrote in memory and then called, but no need of dumpong them. Signal handling in libdebug
 
 ### Race Conditions ###
 
@@ -142,6 +142,7 @@ N.B. All the exploits in this repo work for the version of the executables I inc
 + **Change values**: `set [opt {<base type>}][$<reg> | *<addr> + <offset> | <sumbol>] = <value>`
 + **Call stack**: `where` gives the frame numbers for all the call stack, `up` and `down` allow to move in the call stack, `frame <frame_number>` gets to that frame
 + **Attach to a running process**: `attach <pid>` (the OS may block this, to solve please see [this guide](https://askubuntu.com/questions/41629/after-upgrade-gdb-wont-attach-to-process/41656#41656))
++ **Signal handling**: if some signal bothers you, look at [this guide](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Signals.html)
 
 ### Python ###
 

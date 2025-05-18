@@ -1,12 +1,12 @@
 import z3
 from libdebug import debugger
 import string
-from decimal import Decimal
+# from decimal import Decimal
 
 def cont(_, __) :
     pass
 
-def strunz(_, __) :
+def strunz(_, __) :     # Sry, I was stressed :)
     print("Struuuuuunz")
     pass
 
